@@ -1,7 +1,9 @@
 /* import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+/* bold */
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
+/* regular */
+@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
 
 body {
-  font-family: 'Arvo',
-    serif;
+  font-family: "Arvo", serif;
 }
