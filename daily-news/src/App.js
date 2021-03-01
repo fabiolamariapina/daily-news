@@ -5,6 +5,16 @@ import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      baseURL: "https://newsapi.org/v2/everything?",
+      apikey: "apikey=" + "9b71ebb3bfe54ab7ba9718c6819745c7",
+      query: "&t=",
+      source: "",
+      searchURL: "",
+    };
+  }
   render() {
     const SearchBar = styled(Form)`
       display: flex;
