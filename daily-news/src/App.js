@@ -19,7 +19,7 @@ export default class App extends Component {
               <Form.Control
                 className="mb-2 mr-sm-2"
                 id="inlineFormInputName2"
-                placeholder="Search For News By Source"
+                placeholder="Search by Source"
               />
               <Button type="submit" className="mb-2">
                 Search
