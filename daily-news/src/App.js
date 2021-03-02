@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import Heading from "./components/Heading";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import styled from "styled-components";
 
 export default class App extends Component {
   constructor(props) {
@@ -17,29 +14,36 @@ export default class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  handleChange(event) {
+    this.setState({ [event.target.id]: event.target.value });
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      searchURL:
+        this.state.baseURL +
+        this.state.apikey +
+        this.state.query +
+        this.state.source,
+    });
+  }
   render() {
-    const SearchBar = styled(Form)`
-      display: flex;
-      justify-content: center;
-    `;
     return (
       <div>
         <Heading />
         <main>
           <div>
-            <SearchBar inline onSubmit={this.handleSubmit}>
-              <Form.Control
-                className="mb-2 mr-sm-2"
-                id="inlineFormInputName2"
+            <form onSubmit={this.handleSubmit}>
+              <input
+                id="source"
+                type="text"
+                placeholder="Type Source Here"
                 value={this.state.source}
                 onChange={this.handleChange}
-                placeholder="Search by Source"
               />
-              <Button type="submit" className="mb-2">
-                Search
-              </Button>
-              <a href={this.state.searchURL}>{this.state.searchURL}</a>
-            </SearchBar>
+              <input type="submit" value="Search" />
+            </form>
+            <a href={this.state.searchURL}>{this.state.searchURL}</a>
           </div>
         </main>
       </div>
