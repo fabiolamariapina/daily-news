@@ -6,9 +6,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       baseURL: "https://newsapi.org/v2/everything?",
-      apikey: "apikey=" + "9b71ebb3bfe54ab7ba9718c6819745c7",
       query: "&t=",
-      source: "",
+      parameter: "",
+      apikey: "apikey=" + "9b71ebb3bfe54ab7ba9718c6819745c7",
       searchURL: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -22,9 +22,9 @@ export default class App extends Component {
     this.setState({
       searchURL:
         this.state.baseURL +
-        this.state.apikey +
         this.state.query +
-        this.state.source,
+        this.state.parameter +
+        this.state.apikey,
     });
   }
   render() {
@@ -38,7 +38,7 @@ export default class App extends Component {
                 id="source"
                 type="text"
                 placeholder="Type Source Here"
-                value={this.state.source}
+                value={this.state.query}
                 onChange={this.handleChange}
               />
               <input type="submit" value="Search" />
