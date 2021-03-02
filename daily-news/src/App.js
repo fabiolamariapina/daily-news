@@ -25,15 +25,18 @@ export default class App extends Component {
         <Heading />
         <main>
           <div>
-            <SearchBar inline>
+            <SearchBar inline onSubmit={this.handleSubmit}>
               <Form.Control
                 className="mb-2 mr-sm-2"
                 id="inlineFormInputName2"
+                value={this.state.source}
+                onChange={this.handleChange}
                 placeholder="Search by Source"
               />
               <Button type="submit" className="mb-2">
                 Search
               </Button>
+              <a href={this.state.searchURL}>{this.state.searchURL}</a>
             </SearchBar>
           </div>
         </main>
