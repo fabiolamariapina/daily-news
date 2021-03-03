@@ -29,11 +29,13 @@ import Search from "./components/Search";
 // }
 
 // add news API URL
-const NEWS_API_URL = "https://newsapi.org/v2/everything?";
-// add API Key
-const API_KEY = "9b71ebb3bfe54ab7ba9718c6819745c7";
+const NEWS_API_URL =
+  "https://newsapi.org/v2/everything?q=news&apikey=9b71ebb3bfe54ab7ba9718c6819745c7";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [news, setNews] = useState([]);
+  const [erroeMessage, setErrorMessage] = useState(null);
   return (
     <div>
       <Heading />
