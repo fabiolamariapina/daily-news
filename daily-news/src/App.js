@@ -46,6 +46,25 @@ const App = () => {
       });
   }, []);
 
+  const search = (searchValue) => {
+    setLoading(true);
+    setErrorMessage(null);
+
+    fetch(
+      `https://newsapi.org/v2/everything?q${searchValue}&apikey=9b71ebb3bfe54ab7ba9718c6819745c7`
+    )
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        if (jsonResponse.Response === "True") {
+          setNews(jsonResponse.Search);
+          setLoading(false);
+        } else {
+          setErrorMessage(jsonResponse.Error);
+          setLoading(false);
+        }
+      });
+  };
+
   return (
     <div>
       <Heading />
