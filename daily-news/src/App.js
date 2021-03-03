@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Heading from "./components/Heading";
 import Search from "./components/Search";
 
@@ -45,3 +45,5 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
