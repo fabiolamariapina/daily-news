@@ -70,7 +70,7 @@ const App = () => {
       <Heading />
       <main>
         <div>
-          <Search />
+          <Search search={search} />
         </div>
       </main>
     </div>
