@@ -35,7 +35,17 @@ const NEWS_API_URL =
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [news, setNews] = useState([]);
-  const [erroeMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    fetch(NEWS_API_URL)
+      .then((response) => response.json())
+      .then((jsonResponse) => {
+        setNews(jsonResponse.Search);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div>
       <Heading />
